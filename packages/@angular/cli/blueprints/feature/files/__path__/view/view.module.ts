@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Framing } from '@framing/ng-core';
 
-import { MyViewComponent } from './my-view.component';
+import { MyViewComponent } from './my-view/my-view.component';
 
 @NgModule(Framing((framing) => framing
   .declarationsAndEntryComponents([
