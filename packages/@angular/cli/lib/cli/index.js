@@ -17,9 +17,9 @@ module.exports = function(options) {
   UI.prototype.writeWarnLine = function () { }
 
   options.cli = {
-    name: 'ng',
+    name: 'biz',
     root: path.join(__dirname, '..', '..'),
-    npmPackage: '@angular/cli'
+    npmPackage: '@framing/biz'
   };
 
   // ensure the environemnt variable for dynamic paths

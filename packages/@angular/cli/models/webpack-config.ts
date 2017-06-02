@@ -46,7 +46,7 @@ export class NgCliWebpackConfig {
 
     if (this.wco.appConfig.main || this.wco.appConfig.polyfills) {
       const typescriptConfigPartial = this.wco.buildOptions.aot
-        ? getAotConfig(this.wco)
+        ? getNonAotConfig(this.wco)
         : getNonAotConfig(this.wco);
       webpackConfigs.push(typescriptConfigPartial);
     }

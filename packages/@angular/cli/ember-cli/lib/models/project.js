@@ -116,7 +116,7 @@ Project.prototype.name = function() {
  */
 Project.prototype.isEmberCLIProject = function() {
   return 'angular-cli' in this.dependencies()
-      || '@angular/cli' in this.dependencies();
+      || '@framing/biz' in this.dependencies();
 };
 
 /**

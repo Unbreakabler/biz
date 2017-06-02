@@ -80,8 +80,18 @@ export const getNonAotConfig = function(wco: WebpackConfigOptions) {
   const tsConfigPath = path.resolve(projectRoot, appConfig.root, appConfig.tsconfig);
 
   return {
-    module: { rules: [{ test: /\.ts$/, loader: webpackLoader }] },
-    plugins: [ _createAotPlugin(wco, { tsConfigPath, skipCodeGeneration: true }) ]
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          use: [
+            'awesome-typescript-loader',
+            'angular2-template-loader',
+            'angular-router-loader',
+          ],
+        },
+      ],
+    },
   };
 };
 
@@ -118,7 +128,17 @@ export const getNonAotTestConfig = function(wco: WebpackConfigOptions) {
   }
 
   return {
-    module: { rules: [{ test: /\.ts$/, loader: webpackLoader }] },
-    plugins: [ _createAotPlugin(wco, pluginOptions) ]
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          use: [
+            'awesome-typescript-loader',
+            'angular2-template-loader',
+            'angular-router-loader',
+          ],
+        },
+      ],
+    },
   };
 };

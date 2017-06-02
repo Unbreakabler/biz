@@ -1,18 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-<% if (routing) { %>
-import { AppRoutingModule } from './app-routing.module';<% } %>
-import { AppComponent } from './app.component';
+import { Framing } from '@framing/ng-core';
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule<% if (routing) { %>,
-    AppRoutingModule<% } %>
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+import { AppFeature } from '../features/core/app/app.feature';
+
+@NgModule(Framing((framing) => framing
+  .frame(new AppFeature())
+))
 export class AppModule { }

@@ -2,7 +2,7 @@
 'use strict';
 
 // Provide a title to the process in `ps`
-process.title = '@angular/cli';
+process.title = '@framing/biz';
 
 const CliConfig = require('../models/config').CliConfig;
 const Version = require('../upgrade/version').Version;
@@ -22,7 +22,7 @@ function _fromPackageJson(cwd) {
   cwd = cwd || process.cwd();
 
   do {
-    const packageJsonPath = path.join(cwd, 'node_modules/@angular/cli/package.json');
+    const packageJsonPath = path.join(cwd, 'node_modules/@framing/biz/package.json');
     if (fs.existsSync(packageJsonPath)) {
       const content = fs.readFileSync(packageJsonPath, 'utf-8');
       if (content) {
@@ -94,13 +94,13 @@ if (packageJsonProjectPath && fs.existsSync(packageJsonProjectPath)) {
   const deps = packageJsonProject['dependencies'] || {};
   const devDeps = packageJsonProject['devDependencies'] || {};
   const hasOldDep = !!deps['angular-cli'];
-  const hasDep = !!deps['@angular/cli'];
+  const hasDep = !!deps['@framing/biz'];
   const hasOldDevDep = !!devDeps['angular-cli'];
-  const hasDevDep = !!devDeps['@angular/cli'];
+  const hasDevDep = !!devDeps['@framing/biz'];
 
   if (hasOldDep || hasOldDevDep || !(hasDevDep || hasDep)) {
     const warnings = [
-      'Unable to find "@angular/cli" in devDependencies.',
+      'Unable to find "@framing/biz" in devDependencies.',
       ''
     ];
 
@@ -119,16 +119,16 @@ if (packageJsonProjectPath && fs.existsSync(packageJsonProjectPath)) {
       warnings.push('"npm uninstall --save-dev angular-cli"');
     }
     if (hasDep) {
-      warnings.push('"npm uninstall --save @angular/cli"')
+      warnings.push('"npm uninstall --save @framing/biz"')
     }
     if (!hasDevDep) {
-      warnings.push('"npm install --save-dev @angular/cli@latest"');
+      warnings.push('"npm install --save-dev @framing/biz@latest"');
     }
     process.stderr.write(yellow(warnings.join('\n'), '\n\n'));
   }
 }
 
-resolve('@angular/cli', { basedir: process.cwd() },
+resolve('@framing/biz', { basedir: process.cwd() },
   function (error, projectLocalCli) {
     var cli;
     if (error) {
