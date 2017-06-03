@@ -23,6 +23,7 @@ export class AppFeature extends Framer<M, V> {
 
   public frame(framing: FramingNgModule): void {
     framing
+      .root()
       .import(AppViewModule)
       .component(this.theView.appRoot);
   }
