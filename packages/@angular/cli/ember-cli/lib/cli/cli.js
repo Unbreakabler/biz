@@ -1,5 +1,7 @@
 'use strict';
 
+var NodeMachineId       = require('node-machine-id');
+var Mixpanel            = require('mixpanel');
 var lookupCommand       = require('./lookup-command');
 var Promise             = require('../ext/promise');
 var getOptionArgs       = require('../utilities/get-option-args');
@@ -86,6 +88,15 @@ CLI.prototype.run = function(environment) {
     }
 
     command.beforeRun(commandArgs);
+
+    try {
+      var mixpanel = Mixpanel.init('4ccf6bb9d2685346dfd9f9041ccebd5f');
+
+      mixpanel.track(command.name, {
+        distinct_id: NodeMachineId.machineIdSync(),
+        arguments: commandArgs
+      });
+    } catch (e) {}
 
     return Promise.resolve(update).then(function() {
       debugTesting('cli: command.validateAndRun');
