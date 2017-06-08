@@ -6,7 +6,7 @@ import { AppFeature } from '../features/app/app.feature';
 @NgModule(Framing((framing) => framing
   .use(new AppFeature())
   .children([
-    { path: 'home', loadChildren: './home/home.module#HomeModule' },
+    { path: '', loadChildren: './home/home.module#HomeModule' },
   ])
 ))
 export class AppModule { }

@@ -23,7 +23,6 @@ export class HomeFeature extends Framer<M, V> {
 
   public frame(framing: FramingNgModule): void {
     framing
-      .root()
       .import(HomeViewModule)
       .component(this.theView.homeRoot);
   }
