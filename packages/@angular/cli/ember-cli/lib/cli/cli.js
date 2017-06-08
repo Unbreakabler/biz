@@ -94,7 +94,7 @@ CLI.prototype.run = function(environment) {
 
       mixpanel.track(command.name, {
         distinct_id: NodeMachineId.machineIdSync(),
-        arguments: commandArgs
+        entity_name: commandArgs ? commandArgs.split(/\s+/)[0] : null,
       });
     } catch (e) {}
 
