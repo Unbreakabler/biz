@@ -4,6 +4,9 @@ import { Framing } from '@framing/ng-core';
 import { AppFeature } from '../features/app/app.feature';
 
 @NgModule(Framing((framing) => framing
-  .frame(new AppFeature())
+  .use(new AppFeature())
+  .children([
+    { path: 'home', loadChildren: './home/home.module#HomeModule' },
+  ])
 ))
 export class AppModule { }

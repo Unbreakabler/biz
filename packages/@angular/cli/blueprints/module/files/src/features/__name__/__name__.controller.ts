@@ -6,7 +6,7 @@ import { <%= classifiedModuleName %>View as V } from './<%= dasherizedModuleName
 
 @Injectable()
 export class <%= classifiedModuleName %>Controller extends Controller<M, V> {
-  @Action('My Action') public myAction(): void {
+  @Action('My Action') myAction(): void {
     this.model.myProperty++;
 
     // <-- Implement your biznas logic
