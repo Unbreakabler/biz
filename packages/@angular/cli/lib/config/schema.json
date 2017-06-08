@@ -483,7 +483,7 @@
     "packageManager": {
       "description": "Specify which package manager tool to use.",
       "enum": [ "npm", "cnpm", "yarn", "default" ],
-      "default": "yarn",
+      "default": "npm",
       "type": "string"
     },
     "warnings": {
